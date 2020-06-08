@@ -12,21 +12,21 @@ export default class ShoppingListItem extends React.Component {
     this.props = props;
   }
 
-  removeItem() {
+  removeItem = () => {
     //use the passed in props from the parent which is the index of the list item
     //and the method to call in parent removeItem
 
     //QUIZ: passing data from parent to child challenge
     this.props.removeItem(this.props.index);
-  }
+  };
 
-  completeItem() {
+  completeItem = () => {
     //use the passed in props from the parent which is the index of the list item
     //and the method to call in parent completeItemInList
 
     //QUIZ: passing data from parent to child challenge
     this.props.completeItem(this.props.index);
-  }
+  };
 
   render() {
     return (
@@ -44,9 +44,7 @@ export default class ShoppingListItem extends React.Component {
             {this.props.data.complete ? (
               <CheckBoxIcon />
             ) : (
-              <CheckBoxOutlineBlankIcon
-                onClick={this.completeItem.bind(this)}
-              />
+              <CheckBoxOutlineBlankIcon onClick={this.completeItem} />
             )}
           </Grid>
           <Grid item xs>
@@ -54,7 +52,7 @@ export default class ShoppingListItem extends React.Component {
           </Grid>
           <Grid item xs>
             {/* //QUIZ: passing data from parent to child challenge */}
-            <HighlightOffIcon onClick={this.removeItem.bind(this)} />
+            <HighlightOffIcon onClick={this.removeItem} />
           </Grid>
         </Grid>
       </li>
